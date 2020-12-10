@@ -1,8 +1,13 @@
 <div class="container">
-  <input type="date" [(ngModel)]="date" >
-  <button (click)="onClickSubmit($event)">Submit</button>
-
-  <div *ngFor="let photo of photos">
-    <img src="{{photo.img_src}}">
+  <h1 class="mat-display-1 title">Mars Rover Photographs</h1>
+  <div class="input-row">
+    <input type="date" [(ngModel)]="date">
+    <button (click)="onClickSubmit($event)">Submit</button>
   </div>
+
+  <mat-grid-list cols="4" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let photo of photos">
+      <img src="{{photo.img_src}}">
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

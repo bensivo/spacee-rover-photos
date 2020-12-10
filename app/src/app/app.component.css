@@ -1,0 +1,19 @@
+.container {
+    width:100%;
+    text-align: center;
+}
+
+.title {
+    margin-bottom: 1rem;
+}
+
+.input-row {
+    margin: auto;
+    text-align: center;
+}
+
+img {
+    padding: .5rem;
+    height: 300px;
+    max-width: 300px;
+}
