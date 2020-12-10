@@ -1,13 +1,19 @@
-import { Module, OnModuleInit, Logger } from '@nestjs/common';
+import { Module, OnModuleInit, Logger, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { ConfigModule } from './config/config.module';
 import { NasaModule } from './nasa/nasa.module';
 import { PhotoModule } from './photo/photo.module';
 import axios from 'axios';
+import { InterceptorMiddleware } from './interceptor/interceptor.middleware';
+import { InterceptorModule } from './interceptor/interceptor.module';
 
 @Module({
-    imports: [ConfigModule, NasaModule, PhotoModule],
+    imports: [ConfigModule, NasaModule, PhotoModule, InterceptorModule],
 })
-export class AppModule implements OnModuleInit {
+export class AppModule implements OnModuleInit, NestModule {
+    configure(consumer: MiddlewareConsumer) {
+        consumer.apply(InterceptorMiddleware).forRoutes('*');
+    }
+
     onModuleInit() {
         this.setupAxiosLoggers();
     }
