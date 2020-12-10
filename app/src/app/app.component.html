@@ -1,0 +1,8 @@
+<div class="container">
+  <input type="date" [(ngModel)]="date" >
+  <button (click)="onClickSubmit($event)">Submit</button>
+
+  <div *ngFor="let photo of photos">
+    <img src="{{photo.img_src}}">
+  </div>
+</div>
