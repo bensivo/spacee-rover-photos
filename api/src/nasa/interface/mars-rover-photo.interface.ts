@@ -15,7 +15,7 @@ export interface MarsRoverCamera {
 }
 
 export interface MarsRoverInfo {
-    id: number,
+    id: number;
     name: string;
     landing_date: string;
     launch_date: string;

@@ -1,7 +1,7 @@
-import { Module } from "@nestjs/common";
-import { ConfigModule } from "src/config/config.module";
-import { ConfigService } from "src/config/config.service";
-import { InMemoryCache } from "./impl/in-memory-cache.service";
+import { Module } from '@nestjs/common';
+import { ConfigModule } from '../config/config.module';
+import { ConfigService } from '../config/config.service';
+import { InMemoryCache } from './impl/in-memory-cache.service';
 
 @Module({
     imports: [ConfigModule],
@@ -10,19 +10,19 @@ import { InMemoryCache } from "./impl/in-memory-cache.service";
             provide: 'CACHE',
             // useClass: InMemoryCache,
             inject: [ConfigService],
-            useFactory: (configService: ConfigService)  => {
-                switch(configService.CACHE_MECHANISM) {
+            useFactory: (configService: ConfigService) => {
+                switch (configService.CACHE_MECHANISM) {
                     case 'in-memory':
                         console.log('Using inmemory cache');
                         return new InMemoryCache();
                     default:
-                        throw new Error(`Cache mechanism ${configService.CACHE_MECHANISM} not supported`);
+                        throw new Error(
+                            `Cache mechanism ${configService.CACHE_MECHANISM} not supported`,
+                        );
                 }
-            }
-        }
+            },
+        },
     ],
-    exports: [
-        'CACHE'
-    ]
+    exports: ['CACHE'],
 })
-export class CacheModule { }
+export class CacheModule {}

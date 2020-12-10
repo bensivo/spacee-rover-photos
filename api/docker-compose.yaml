@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+  spacee-api:
+    build: ./
+    image: spacee-api
+    ports:
+      - '3000:3000'
+    environment:
+      NASA_API_KEY: 'rZ6HdXfFtuZu3ETMqW78jNxvdf4W2isPCzEBfs2H'
+      CACHE_MECHANISM: 'in-memory'
