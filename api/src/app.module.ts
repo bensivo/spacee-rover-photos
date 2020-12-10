@@ -1,4 +1,10 @@
-import { Module, OnModuleInit, Logger, NestModule, MiddlewareConsumer } from '@nestjs/common';
+import {
+    Module,
+    OnModuleInit,
+    Logger,
+    NestModule,
+    MiddlewareConsumer,
+} from '@nestjs/common';
 import { ConfigModule } from './config/config.module';
 import { NasaModule } from './nasa/nasa.module';
 import { PhotoModule } from './photo/photo.module';
