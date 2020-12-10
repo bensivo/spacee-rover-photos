@@ -1,0 +1,7 @@
+version: '3.9'
+services:
+  spacee-api:
+    build: ./
+    image: spacee-webapp
+    ports:
+      - '80:80'
