@@ -1,4 +1,6 @@
 # Spacee Rover Photos
+This was an interview application for Spacee, Inc.. Built in roughly 24 hours, the prompt was to use a public NASA API to create a webapp for viewing curiosity rovr photos.
+
 This repo contains 2 applications, an API portion, and a front-end portion
 
 Build and Run instructions can be found in the README's of the api and app directories.
